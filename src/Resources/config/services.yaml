@@ -1,0 +1,29 @@
+
+services:
+    sculpin_update.marker:
+        class: Kmchan\Sculpin\UpdateBundle\Marker\CompositeMarker
+
+    sculpin_update.marker.file:
+        class: Kmchan\Sculpin\UpdateBundle\Marker\FileMarker
+        arguments:
+            - "%sculpin.output_dir%"
+            - "%sculpin_update.marker.file.path%"
+        tags:
+            - name: "sculpin_update.marker"
+
+    sculpin_update.propagator:
+        class: Kmchan\Sculpin\UpdateBundle\Propagator\CompositePropagator
+        public: true
+
+    sculpin_update.writer:
+        class: Kmchan\Sculpin\UpdateBundle\Event\MarkerWriter
+        arguments:
+            - "@sculpin_update.marker"
+        tags:
+            - name: "kernel.event_subscriber"
+
+    sculpin_update.command:
+        class: Kmchan\Sculpin\UpdateBundle\Command\UpdateCommand
+        tags:
+            - name: "console.command"
+

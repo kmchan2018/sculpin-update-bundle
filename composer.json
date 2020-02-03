@@ -1,0 +1,36 @@
+{
+    "name": "kmchan/sculpin-update-bundle",
+    "description": "Implements an update command for Sculpin that builds a website incrementally",
+    "version": "0.0.1",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Chan Kwun Man"
+        }
+    ],
+
+    "require": {
+        "php": "^7.2",
+        "sculpin/sculpin": "3.0.*"
+    },
+
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*",
+        "phpunit/phpunit": "^8",
+        "phpstan/phpstan": "^0.12",
+        "mikey179/vfsstream": "^1.6"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Kmchan\\Sculpin\\UpdateBundle\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Kmchan\\Sculpin\\UpdateBundle\\Tests\\": "tests/"
+        }
+    }
+}

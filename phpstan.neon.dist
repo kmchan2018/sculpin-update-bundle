@@ -1,0 +1,14 @@
+
+parameters:
+	level: max
+	paths: [ "./src" ]
+	checkMissingIterableValueType: false
+
+	ignoreErrors:
+
+		# The fluent interface of the symfony config builder return types is
+		# probably too complex for analysis without some kind of generics
+
+		- message: '#.*NodeDefinition::children.*#'
+		  path: ./src/DependencyInjection/Configuration.php
+
